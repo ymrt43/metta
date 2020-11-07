@@ -1,7 +1,7 @@
 # README
 
 # metta DB設計
-![metta_er](https://user-images.githubusercontent.com/66734795/98437379-f0f41780-2124-11eb-92c2-9a971311c998.png)
+![metta_er](https://user-images.githubusercontent.com/66734795/98437512-0cabed80-2126-11eb-8eed-9e1072b790a1.png)
 
 ## usersテーブル
 |Column|Type|Options|
