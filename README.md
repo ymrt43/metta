@@ -7,7 +7,6 @@
 |name|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false|
-
 ### Association
 - has_one :profile
 - has_one :card
@@ -41,7 +40,6 @@
 |user_id|references|foreign_key: true|
 |provider|string|null: false|
 |uid|string|null: false|
-
 ### Association
 - belongs_to :user, optional: true
 
@@ -78,5 +76,6 @@
 |instructor_name|string|null: false|
 |instructor_gender|integer|null: false|
 |instructor_history|text|null: false|
+|instructor_image|string|null: false|
 ### Association
 - has_many :lessons
