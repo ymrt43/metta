@@ -14,8 +14,8 @@
 - has_one :profile
 - has_one :card
 - has_many :sns_credentials
-- has_many :lessons_users
-- has_many :lessons, through: :lessons_users
+- has_many :reservations
+- has_many :lessons, through: :reservations
 
 ## profilesテーブル
 |Column|Type|Options|
@@ -60,8 +60,8 @@
 |instructor_id|references|null: false, foreign_key: true|
 |fully_booked|boolean|default: false, null: false|
 ### Association
-- has_many :lessons_users
-- has_many :users, through: :lessons_users
+- has_many :reservations
+- has_many :users, through: :reservations
 - belongs_to :instructor
 
 ## lessons_usersテーブル
