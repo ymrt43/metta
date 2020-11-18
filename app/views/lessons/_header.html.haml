@@ -1,0 +1,12 @@
+.Header
+  .Header__left
+    =link_to "/" do
+      = image_tag 'metta-logo.png', alt: "Metta", height: '56', width: '186', class: 'Header__logo'
+  .Header__right
+    - if user_signed_in?
+      = link_to 'log out', destroy_user_session_path, method: :delete, class: 'Link1 Header__user'
+    - else
+      = link_to 'sign up', new_user_registration_path, class: 'Link1 Header__user'
+      = link_to 'log in', new_user_session_path, class: 'Link1 Header__user'
+    .Header__menu
+      = icon("fas", "bars", class: "Header__menu--icon")

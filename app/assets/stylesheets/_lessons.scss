@@ -1,0 +1,160 @@
+// トップページ
+.Top {
+  width: 100%;
+  background-color: #333333;
+  font-size: 16px;
+}
+
+.Main {
+  &__image {
+    background-image: url(tree-pose-yoga-in-nature.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 600px;
+    h2 {
+      font-size: 2.0em;
+      color: #E9E9E9;
+      opacity: 0.6;
+      line-height: 2;
+      letter-spacing: 0.15em;
+      padding: 200px 0 0 30px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    }
+  }
+  &__studio {
+    padding-top: 30px;
+    padding-bottom: 40px;
+    text-align: center;
+    color: #E9E9E9;
+  }
+  &__search {
+    &--bar {
+    }
+    &--selectBar {
+      width: 360px;
+      border: none;
+      background-color: #ffffff;
+      height: 26px;
+      padding-right: 20px;
+      color: #757575;
+    }
+    &--icon {
+      padding: 5px 0;
+      margin-right: 20px;
+      color: #757575;
+    }
+  }
+  &__searchField {
+    max-width: 400px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    padding: 0 10px;
+    line-height: 26px;
+    margin: 0 auto;
+  }
+  &__lessons {
+    max-width: 600px;
+    background-color: #ffffff;
+    margin: 30px auto;
+    font-size: 12px;
+    padding: 30px;
+    border-radius: 4px;
+  }
+}
+
+.LessonList__block {
+  display: flex;
+  align-items: center;
+  height: 42px;
+  border: 1px solid #b6b6b6;
+  border-radius: 10px;
+  color: #333333;
+  padding: 0 5px;
+  margin: 8px 0;
+  background-color: #ffffff;
+}
+
+.Lesson {
+  &__date {
+    letter-spacing: 0.01em;
+    margin-right: 5px;
+    width: 100px;
+  }
+  &__startTime {
+    margin-right: 2px;
+    width: 36px;
+  }
+  &__endTime {
+    width: 36px;
+    margin-right: 8px;
+  }
+  &__course {
+    margin-right: 16px;
+    width: 240px;
+  }
+  &__fee {
+    &--icon{
+      margin-right: 5px;
+    }
+  }
+}
+
+// ヘッダー
+.Header {
+  background-color: #ffffff;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  &__logo {
+    margin: 5px 0 0 5px;
+  }
+  &__right {
+    display: flex;
+    color: #333333;
+    line-height: 67px;
+    font-size: 14px;
+  }
+  &__user {
+    color: #333333;
+    margin-right: 26px;
+  }
+  &__menu {
+    margin-right: 20px;
+  }
+}
+
+.Link1 {
+  text-decoration: none;
+}
+
+// フッター
+.Footer {
+  background-color: #E9E9E9;
+  font-size: 12px;
+}
+
+.Rules {
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.Rule {
+  color: #9DA5A0;
+  margin: 10px 10px 0;
+}
+
+.Footer__logo {
+  font-size: 20px;
+  text-align: center;
+  padding: 16px 0 60px;
+}
+
+.logo2 {
+  color: #9DA5A0;
+}
