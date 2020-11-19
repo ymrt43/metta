@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_11_19_153258) do
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "phone_num", null: false
+    t.string "phone_num", null: false
     t.integer "zipcode", null: false
     t.date "date_of_birth", null: false
     t.bigint "user_id"
