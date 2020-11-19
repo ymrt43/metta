@@ -1,11 +1,12 @@
 // トップページ
 .Top {
   width: 100%;
-  background-color: #333333;
+  background-color: #9DA5A0;
   font-size: 16px;
 }
 
 .Main {
+  padding-bottom: 30px;
   &__image {
     background-image: url(tree-pose-yoga-in-nature.jpg);
     background-repeat: no-repeat;
@@ -23,10 +24,11 @@
     }
   }
   &__studio {
-    padding-top: 30px;
-    padding-bottom: 40px;
+    padding-top: 40px;
+    padding-bottom: 30px;
     text-align: center;
-    color: #E9E9E9;
+    color: #ffffff;
+    font-weight: 600;
   }
   &__search {
     &--bar {
@@ -37,12 +39,14 @@
       background-color: #ffffff;
       height: 26px;
       padding-right: 20px;
-      color: #757575;
+      color: #333333;
+      opacity: 60%;
     }
     &--icon {
+      opacity: 60%;
       padding: 5px 0;
       margin-right: 20px;
-      color: #757575;
+      color: #333333;
     }
   }
   &__searchField {
@@ -134,12 +138,12 @@
 
 // フッター
 .Footer {
-  background-color: #E9E9E9;
+  background-color: #333333;
   font-size: 12px;
 }
 
 .Rules {
-  padding: 20px 0;
+  padding: 40px 0 20px;
   display: flex;
   justify-content: center;
   text-align: center;
