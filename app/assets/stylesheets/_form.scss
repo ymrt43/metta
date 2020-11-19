@@ -20,6 +20,15 @@
   &__content { 
     margin-bottom: 10px;
     padding: 0 10px;
+    select {
+      padding: 8px 10px;
+      width: 130px;
+      border: 1px solid #E9E9E9;
+      border-radius: 4px;
+      margin: 0 auto;
+      font-size: 14px;
+      color: #6e777c;
+    }
   }
   &__label {
     font-size: 14px;
@@ -45,6 +54,11 @@
     border: none;
     border-radius: 4px;
     color: #ffffff;
+    transition: .3s;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.12), 0 2px 2px 0 rgba(0,0,0,.24);
+    &:hover {
+      box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+    }
   }
 }
 
