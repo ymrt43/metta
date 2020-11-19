@@ -2,8 +2,8 @@
   = render partial: 'lessons/header'
   .FormBox
     %h2 新規会員登録
-    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      = render "devise/shared/error_messages", resource: resource
+    = form_for(@user, url: user_registration_path) do |f|
+      = render "devise/shared/error_messages", resource: @user
       .FormBox__content
         = f.label :name, "氏名", class: 'FormBox__label'
         %span.rq 必須
@@ -28,6 +28,5 @@
         %br/
         = f.password_field :password_confirmation, placeholder: "再度入力ください", class: 'FormBox__field'
       .FormBox__actions
-        = f.submit "次へ", class: 'FormBox__btn'
-    -# = render "devise/shared/links"
+        = f.submit "Next", class: 'FormBox__btn'
   = render partial: 'lessons/footer'
