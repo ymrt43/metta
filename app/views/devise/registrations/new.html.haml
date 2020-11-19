@@ -1,21 +1,33 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.Form
+  = render partial: 'lessons/header'
+  .FormBox
+    %h2 新規会員登録
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .FormBox__content
+        = f.label :name, "氏名", class: 'FormBox__label'
+        %span.rq 必須
+        %br/
+        = f.text_field :name, autofocus: true, placeholder: "山田花子", class: 'FormBox__field'
+      .FormBox__content
+        = f.label :email, "メールアドレス", class: 'FormBox__label'
+        %span.rq 必須
+        %br/
+        = f.email_field :email, autofocus: true, placeholder: "info@metta.com", class: 'FormBox__field'
+      .FormBox__content
+        = f.label :password, "パスワード", class: 'FormBox__label'
+        %span.rq 必須
+        -# - if @minimum_password_length
+        -#   %em
+        -#     #{@minimum_password_length}文字以上の半角英数字
+        %br/
+        = f.password_field :password, placeholder: "#{@minimum_password_length}文字以上の半角英数字", class: 'FormBox__field'
+      .FormBox__content
+        = f.label :password_confirmation, "パスワード確認", class: 'FormBox__label'
+        %span.rq 必須
+        %br/
+        = f.password_field :password_confirmation, placeholder: "再度入力ください", class: 'FormBox__field'
+      .FormBox__actions
+        = f.submit "次へ", class: 'FormBox__btn'
+    -# = render "devise/shared/links"
+  = render partial: 'lessons/footer'
