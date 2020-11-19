@@ -20,13 +20,12 @@
 ## profilesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|last_name|string|null: false|
-|first_name|string|null: false|
+|phone_num|string|null: false|
+|zipcode|intger|null: false|
 |date_of_birth|date|null: false|
-|gender|intger|null: false|
-|user_id|refernces|foreign_key: true, null: false|
+|user_id|refernces|foreign_key: true|
 ### Association
-- belongs_to :user
+- belongs_to :user, optional: true
 
 ## cardsテーブル
 |Column|Type|Options|
