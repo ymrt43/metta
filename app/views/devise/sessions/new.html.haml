@@ -2,6 +2,8 @@
   = render partial: 'lessons/header'
   .FormBox
     %h2 ログイン
+    = link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post
+    = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post
     = form_for(@user, as: resource_name, url: user_session_path) do |f|
       .FormBox__content
         = f.email_field :email, autofocus: true, placeholder: "メールアドレス", class: 'FormBox__field'
