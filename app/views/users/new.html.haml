@@ -1,12 +1,7 @@
 .Form
   = render partial: 'lessons/header'
   .FormBox
-    -# .FormBox__content
-    -#   = link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post
-    -# .FormBox__content
-    -#   = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post
-    %h2 ログイン
-
+    %h2 新規会員登録
     .FormBox__reg.Reg__mail
       = link_to new_user_registration_path, method: :get, class: 'FormBox__link2' do
         = icon('far', 'envelope', class: "FormBox__reg--icon")
