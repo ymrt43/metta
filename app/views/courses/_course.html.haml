@@ -1,0 +1,12 @@
+.CourseBox
+  .CourseInfo__image
+    = image_tag course.src.url, alt: 'イメージ', height: '100', width: '100', class: 'CourseInfo__image--preview'
+  .CourseInfo__name
+    = course.course_name
+  .CourseInfo__introduction
+    = course.introduction
+  .CourseAction
+    = link_to edit_course_path(course), class: 'CourseAction__link' do
+      = icon('fas', 'edit', class: 'CourseAction__icon')
+    = link_to course_path(course), method: :delete, class: 'CourseAction__link' do
+      = icon('far', 'trash-alt', class: 'CourseAction__icon')

@@ -1,0 +1,12 @@
+.SideBar {
+  width: 150px;
+  background-color: white;
+}
+.AdminPage {
+  display: flex;
+  height: calc( 100vh - 67px);
+  width: 100%;
+}
+.FormField {
+  width: calc( 100vh - 100px );
+}

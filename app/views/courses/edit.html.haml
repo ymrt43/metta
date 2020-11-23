@@ -1,0 +1,28 @@
+.Top
+  = render partial: 'lessons/header'
+  .AdminPage
+    = render partial: 'lessons/sideBar'
+    .FormField
+      = form_with model: @course, local: true do |f|
+        .AdminForm
+          .AdminForm__title
+            コース編集
+          .AdminForm__contents
+            .AdminForm__content--label
+              = f.label :course_name, "レッスンコース名", class: 'AdminForm__label'
+            .AdminForm__content
+              = f.text_field :course_name, maxlength: 30, placeholder: "30文字以内", autofocus: true, required: true, class: 'AdminForm__box1'
+          .AdminForm__contents
+            .AdminForm__content--label
+              = f.label :introduction, "コース紹介", class: 'AdminForm__label'
+            .AdminForm__content
+              = f.text_area :introduction, placeholder: "例: 目覚めの朝に(特徴)\n　ヨガマットレンタルOK(持ち物) など", autofocus: true, required: true, class: 'AdminForm__box2'
+          .AdminForm__contents
+            .AdminForm__content--label
+              = f.label :src, "画像", class: 'AdminForm__label'
+            .AdminForm__content
+              = f.file_field :src, placeholder: "30文字以内", autofocus: true, required: true, class: 'AdminForm__fileBox'
+            .AdminForm__content
+              = image_tag 'beach-yoga-pose-in-sand-at-sunset.jpg', alt: 'プレビュー', height: '300px', width: '300px', class: 'AdminForm__preview'
+            .AdminForm__content
+              = f.submit "コースを登録", class: 'AdminForm__submit'

@@ -1,0 +1,14 @@
+.SideBar
+  %ul.AdminMenu
+    .AdminMenu__category
+      レッスン
+    %li.AdminMenu__lists
+      = link_to '新規登録', new_lesson_path, class: 'AdminMenu__list' 
+    %li.AdminMenu__lists
+      = link_to '一覧', lessons_path, class: 'AdminMenu__list' 
+    .AdminMenu__category
+      コース
+    %li.AdminMenu__lists
+      = link_to '新規登録', new_course_path, class: 'AdminMenu__list' 
+    %li.AdminMenu__lists
+      = link_to '一覧', courses_path, class: 'AdminMenu__list' 
