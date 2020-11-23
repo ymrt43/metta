@@ -1,7 +1,7 @@
 # README
 
 # metta DB設計
-![metta_er](https://user-images.githubusercontent.com/66734795/99392066-76927700-291e-11eb-8797-8d884ae31d6a.png)
+![metta_er](https://user-images.githubusercontent.com/66734795/99940532-ad99da00-2daf-11eb-808f-1b7ff59075e1.png)
 
 
 ## usersテーブル
@@ -47,7 +47,6 @@
 ## lessonsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|course_id|references|null: false, foreign_key: true|
 |level|integer|null: false|
 |capacity|integer|null: false|
 |date|date|null: false|
@@ -55,7 +54,7 @@
 |end_time|time|null: false|
 |fee|integer|null: false|
 |lesson_introduction|text|index: true|
-|instructor_id|references|null: false, foreign_key: true|
+|course_id|references|null: false, foreign_key: true|
 |fully_booked|boolean|default: false, null: false|
 ### Association
 - has_many :reservations
@@ -64,8 +63,9 @@
 ## coursesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|c_name|string|null: false|
+|course_name|string|null: false, index: true|
 |introduction|text|null: false|
+|src|string|null: false|
 ### Association
 - has_many :lessons
 
@@ -73,7 +73,6 @@
 |Column|Type|Options|
 |------|----|-------|
 |count|integer|null: false|
-
 |lesson_id|references|null: false, foregin_key: true|
 |user_id|references|null: false, foregin_key: true|
 ### Association
