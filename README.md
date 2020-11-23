@@ -15,7 +15,6 @@
 - has_one :card
 - has_many :sns_credentials
 - has_many :reservations
-- has_many :lessons, through: :reservations
 
 ## profilesテーブル
 |Column|Type|Options|
@@ -48,36 +47,35 @@
 ## lessonsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|lesson_name|string|null: false|
-|lesson_level|integer|null: false|
-|lesson_capacity|integer|null: false|
-|lesson_date|date|null: false|
-|lesson_start_time|time|null: false|
-|lesson_end_time|time|null: false|
-|lesson_fee|integer|null: false|
-|lesson_introduction|text|null: false|
+|course_id|references|null: false, foreign_key: true|
+|level|integer|null: false|
+|capacity|integer|null: false|
+|date|date|null: false|
+|start_time|time|null: false|
+|end_time|time|null: false|
+|fee|integer|null: false|
+|lesson_introduction|text|index: true|
 |instructor_id|references|null: false, foreign_key: true|
 |fully_booked|boolean|default: false, null: false|
 ### Association
 - has_many :reservations
-- has_many :users, through: :reservations
-- belongs_to :instructor
+- belongs_to :course
 
-## lessons_usersテーブル
+## coursesテーブル
 |Column|Type|Options|
 |------|----|-------|
+|c_name|string|null: false|
+|introduction|text|null: false|
+### Association
+- has_many :lessons
+
+## reservationsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|count|integer|null: false|
+
 |lesson_id|references|null: false, foregin_key: true|
 |user_id|references|null: false, foregin_key: true|
 ### Association
 - has_many :lessons
 - has_many :users
-
-## instructorsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|instructor_name|string|null: false|
-|instructor_gender|integer|null: false|
-|instructor_history|text|null: false|
-|instructor_image|string|null: false|
-### Association
-- has_many :lessons
