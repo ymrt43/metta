@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   end
   resources :users, only: :new
   root to: 'lessons#index'
+  resources :lessons
+  resources :courses
 end
