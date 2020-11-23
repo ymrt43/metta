@@ -10,7 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_20_144652) do
+ActiveRecord::Schema.define(version: 2020_11_23_083836) do
+
+  create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "course_name", null: false
+    t.text "introduction", null: false
+    t.string "src"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_name"], name: "index_courses_on_course_name"
+  end
+
+  create_table "lessons", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "level", null: false
+    t.integer "capacity", null: false
+    t.date "date", null: false
+    t.time "start_time", null: false
+    t.time "end_time", null: false
+    t.integer "fee", null: false
+    t.text "lesson_introduction"
+    t.bigint "course_id", null: false
+    t.boolean "fully_booked", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_lessons_on_course_id"
+    t.index ["lesson_introduction"], name: "index_lessons_on_lesson_introduction", length: 50
+  end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "phone_num", null: false
@@ -44,5 +69,6 @@ ActiveRecord::Schema.define(version: 2020_11_20_144652) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "lessons", "courses"
   add_foreign_key "sns_credentials", "users"
 end
