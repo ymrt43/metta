@@ -1,8 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
 .Form {
   width: 100%;
   background-color: #E9E9E9;
   font-size: 16px;
 }
+
+@mixin linkBlock($col: #ffffff) {
+  margin: 0 auto 15px;
+  height: 48px;
+  width: 360px;
+  border-radius: 4px;
+  line-height: 48px;
+  transition: .3s;
+  &:hover {
+    opacity: 0.8;
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+  }
+}
+
 .FormBox {
   background-color: #ffffff;
   max-width: 440px;
@@ -15,14 +33,14 @@
     text-align: center;
     margin-bottom: 30px;
     padding-bottom: 20px;
-    border-bottom: 1px solid #e9e9e9;
+    border-bottom: 1px solid #E9E9E9;
   }
   &__content { 
     margin-bottom: 10px;
     padding: 0 10px;
     select {
       padding: 8px 10px;
-      width: 130px;
+      width: 110px;
       border: 1px solid #E9E9E9;
       border-radius: 4px;
       margin: 0 auto;
@@ -36,7 +54,8 @@
   }
   &__field {
     padding: 8px 10px;
-    width: 400px;
+    width: 360px;
+    height: 50px;
     border: 1px solid #E9E9E9;
     border-radius: 4px;
     margin: 0 auto;
@@ -60,6 +79,69 @@
       box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
     }
   }
+  &__image {
+    margin: 0 auto 30px;
+    max-width: 380px;
+  }
+  &__link1 {
+    text-align: center;
+    margin: 30px auto;
+  }
+  &__link2 {
+    text-decoration: none;
+    display: flex;
+  }
+  &__reg {
+    &--iconG {
+      margin: 14px 0 0 10px;
+    }
+    &--icon {
+      font-size: 1.5em;
+      line-height: 48px;
+      color: #ffffff;
+      // margin: 0 10px 0 20px;
+      margin: 12px 0 0 10px;
+    }
+    &--textG {
+      color: #333333;
+      font-size: 14px;
+      margin-left: 100px;
+    }
+    &--text {
+      color: #ffffff;
+      font-size: 14px;
+      margin-left: 90px;
+    }
+    &--textRg {
+      color: #ffffff;
+      font-size: 14px;
+      margin-left: 75px;
+    }
+  }
+}
+
+.Link3 {
+  text-decoration: none;
+  color: #60CAAD;
+  font-size: 12px;
+}
+
+.Reg {
+  &__mail {
+    background-color: #60CAAD;
+    border: 1px solid transparent;
+    @include linkBlock();
+  }
+  &__fb {
+    background-color: #385185;
+    border: 1px solid transparent;
+    @include linkBlock();
+  }
+  &__goo {
+    background-color: #ffffff;
+    border: 1px solid #979797;
+    @include linkBlock(#333333);
+  }
 }
 
 // 必須・任意タグ
@@ -72,7 +154,7 @@
   line-height: 1.4em;
   font-weight: 600;
   background-color: $bgColor;
-  
+
 }
 
 .rq {

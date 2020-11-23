@@ -1,22 +1,20 @@
 .Form
   = render partial: 'lessons/header'
   .FormBox
-    %h2 ログイン
+    %h2 新規会員登録
+    .FormBox__reg.Reg__mail
+      = link_to new_user_registration_path, method: :get, class: 'FormBox__link2' do
+        = icon('far', 'envelope', class: "FormBox__reg--icon")
+        .FormBox__reg--textRg
+          メールアドレスで登録する
     .FormBox__reg.Reg__goo
       = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: 'FormBox__link2' do
         = image_tag 'google_original_logo_icon.png', size: '20x20', class: 'FormBox__reg--iconG'
         .FormBox__reg--textG
-          Googleでログイン
+          Googleで登録する
     .FormBox__reg.Reg__fb
       = link_to user_facebook_omniauth_authorize_path, method: :post, class: 'FormBox__link2' do
         = icon('fab', 'facebook-square', class: "FormBox__reg--icon")
         .FormBox__reg--text
-          Facebookでログイン
-    = form_for(@user, as: resource_name, url: user_session_path) do |f|
-      .FormBox__content
-        = f.email_field :email, autofocus: true, placeholder: "メールアドレス", class: 'FormBox__field'
-      .FormBox__content
-        = f.password_field :password, placeholder: "パスワード", class: 'FormBox__field'
-      .FormBox__actions
-        = f.submit "Log in", class: 'FormBox__btn'
+          Facebookで登録する
   = render partial: 'lessons/footer'
