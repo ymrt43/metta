@@ -1,0 +1,10 @@
+.Top
+  = render partial: 'header'
+  .AdminPage
+    = render partial: 'sideBar'
+    .FormField
+      .AdminForm
+        .AdminForm__title
+          レッスン 一覧
+        .AdminForm__contents
+          = render @lessons

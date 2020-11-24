@@ -6,7 +6,7 @@
       = form_with model: @lesson, local: true do |f|
         .AdminForm
           .AdminForm__title
-            レッスン新規登録
+            レッスン内容編集
           .AdminForm__contents
             .AdminForm__content--label
               = f.label :level, "対象レベル", class: 'AdminForm__label'
@@ -55,4 +55,4 @@
             .AdminForm__content
               = f.check_box :fully_booked, as: :boolean, autofocus: true, class: 'AdminForm__box3'
             .AdminForm__content
-              = f.submit "レッスンを登録", class: 'AdminForm__submit'
+              = f.submit "レッスンを更新", class: 'AdminForm__submit'
