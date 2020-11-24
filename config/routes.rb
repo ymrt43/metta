@@ -15,5 +15,6 @@ Rails.application.routes.draw do
     end
   end
   resources :courses
+  resources :reservations, only: [:new, :create]
   
 end
