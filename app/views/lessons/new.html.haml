@@ -1,0 +1,58 @@
+.Top
+  = render partial: 'header'
+  .AdminPage
+    = render partial: 'sideBar'
+    .FormField
+      = form_with model: @lesson, local: true do |f|
+        .AdminForm
+          .AdminForm__title
+            レッスン新規登録
+          .AdminForm__contents
+            .AdminForm__content--label
+              = f.label :level, "対象レベル", class: 'AdminForm__label'
+            .AdminForm__content
+              = f.select :level, Lesson.levels.keys, { include_blank: "選択してください" }, { class: 'AdminForm__box1', autofocus: true, required: true }
+          .AdminForm__contents
+            .AdminForm__content--label
+              = f.label :capacity, "定員", class: 'AdminForm__label'
+            .AdminForm__content
+              = f.number_field :capacity, placeholder: "1〜10名まで", autofocus: true, required: true, min: 1, max: 10, class: 'AdminForm__box3'
+              %span.AdminForm__box3--nin 人
+          .AdminForm__contents
+            .AdminForm__content--label
+              = f.label :date, "レッスン日", class: 'AdminForm__label'
+            .AdminForm__content
+              = f.date_field :date, autofocus: true, required: true, class: 'AdminForm__box4'
+          .AdminForm__contents
+            .AdminForm__content--label
+              = f.label :start_time, "開始時刻", class: 'AdminForm__label'
+            .AdminForm__content
+              = f.time_field :start_time, autofocus: true, required: true, class: 'AdminForm__box5'
+          .AdminForm__contents
+            .AdminForm__content--label
+              = f.label :end_time, "終了時刻", class: 'AdminForm__label'
+            .AdminForm__content
+              = f.time_field :end_time, autofocus: true, required: true, class: 'AdminForm__box5'
+          .AdminForm__contents
+            .AdminForm__content--label
+              = f.label :fee, "レッスン料金", class: 'AdminForm__label'
+              %span.AdminForm__box3--nin 円(税込み)
+            .AdminForm__content
+              = f.number_field :fee, placeholder: "税込み", autofocus: true, required: true, class: 'AdminForm__box6'
+          .AdminForm__contents
+            .AdminForm__content--label
+              = f.label :lesson_introduction, "レッスン詳細", class: 'AdminForm__label'
+            .AdminForm__content
+              = f.text_area :lesson_introduction, placeholder: "レッスンの説明\n例：持ち物、注意事項等", autofocus: true, required: true, class: 'AdminForm__box3'
+          .AdminForm__contents
+            .AdminForm__content--label
+              = f.label :course_id, "対象コース", class: 'AdminForm__label'
+            .AdminForm__content
+              = f.collection_select :course_id, @courses, :id, :course_name, { include_blank: "選択してください" }, { autofocus: true, required: true, class: 'AdminForm__box3' }
+          .AdminForm__contents
+            .AdminForm__content--label
+              = f.label :fully_booked, "予約受付終了？", class: 'AdminForm__label'
+            .AdminForm__content
+              = f.check_box :fully_booked, as: :boolean, autofocus: true, class: 'AdminForm__box3'
+            .AdminForm__content
+              = f.submit "レッスンを登録", class: 'AdminForm__submit'

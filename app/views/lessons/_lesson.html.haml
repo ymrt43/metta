@@ -1,0 +1,22 @@
+.LessonBox
+  .LessonInfo
+    = lesson.date
+  .LessonInfo
+    = lesson.start_time
+  .LessonInfo
+    = lesson.end_time
+  .LessonInfo
+    = lesson.course.course_name
+  .LessonInfo
+    = lesson.lesson_introduction
+  .LessonInfo
+    = lesson.fee
+  .LessonInfo
+    = lesson.capacity
+  .LessonInfo
+    = lesson.fully_booked
+  .LessonAction
+    = link_to edit_lesson_path(lesson), class: 'LessonAction__link' do
+      = icon('fas', 'edit', class: 'CourseAction__icon')
+    = link_to lesson_path(lesson), method: :delete, class: 'LessonAction__link' do
+      = icon('far', 'trash-alt', class: 'CourseAction__icon')

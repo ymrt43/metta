@@ -1,0 +1,21 @@
+.Top
+  = render partial: 'header'
+  .Main
+    %section.Main__image
+      %h2
+        自然の中で
+        %br/
+        じぶんをみつめて
+    %section.Main__studio
+      .Main__studioIntr
+        ヨガ スタジオ　Metta(メッタ)　予約サイト
+    %section.Main__search
+      .Main__searchField
+        = link_to "#", class: 'Link1' do
+          = icon('fas','filter', class: 'Main__search--icon')
+        = form_with url: "/lessons", method: :get, local: true, class: 'Main__search--bar' do |f|
+          = f.select :lesson_level, {}, { include_blank: "メニューを選んでください" }, { class: 'Main__search--selectBar'}
+    %section.Main__lessons
+      %ul.LessonList
+        = render partial: 'lessonLists'
+  = render partial: 'footer'

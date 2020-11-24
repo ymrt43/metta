@@ -8,5 +8,12 @@ Rails.application.routes.draw do
     post 'profiles', to: 'users/registrations#create_profile'
   end
   resources :users, only: :new
-  root to: 'lessons#index'
+  root to: 'lessons#home'
+  resources :lessons do
+    collection do
+      get 'adminuser'
+    end
+  end
+  resources :courses
+  
 end
