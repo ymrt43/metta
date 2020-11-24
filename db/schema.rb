@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_23_083836) do
+ActiveRecord::Schema.define(version: 2020_11_24_145810) do
 
   create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "course_name", null: false
@@ -47,6 +47,16 @@ ActiveRecord::Schema.define(version: 2020_11_23_083836) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "count", null: false
+    t.bigint "lesson_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["lesson_id"], name: "index_reservations_on_lesson_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
+
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "provider"
     t.string "uid"
@@ -70,5 +80,7 @@ ActiveRecord::Schema.define(version: 2020_11_23_083836) do
   end
 
   add_foreign_key "lessons", "courses"
+  add_foreign_key "reservations", "lessons"
+  add_foreign_key "reservations", "users"
   add_foreign_key "sns_credentials", "users"
 end
