@@ -42,10 +42,20 @@ class LessonsController < ApplicationController
     end
   end
 
+  def show
+    @lesson_duration = @lesson.lesson_duration
+  end
+
   def home
+    @courses = Course.all
+    @lessons = Lesson.includes(:course).order("date ASC")
   end
 
   def adminuser
+  end
+
+  def search
+    @lessons = Lesson.search(params[:course_id])
   end
 
   private
