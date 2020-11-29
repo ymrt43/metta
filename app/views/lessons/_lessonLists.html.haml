@@ -1,55 +1,19 @@
-= link_to '###', class: "Link1" do
+= link_to lesson_path(lessonlist), class: "Link1" do
   %li.LessonList__block
     .Lesson__date
-      2020/11/18(水)
+      = l(lessonlist.date, format: :middle)
     .Lesson__startTime
-      16:00
+      = l(lessonlist.start_time, format: :without_s)
     %spam -
     .Lesson__endTime
-      18:00
+      = l(lessonlist.end_time, format: :without_s)
     .Lesson__course
-      リラックスヨガ
+      = lessonlist.course.course_name
     .Lesson__fee
-      = icon('fas', 'shopping-bag', class: "Lesson__fee--icon")
+      = icon('fas', 'tag', class: "Lesson__fee--icon")
       %span
         ¥
       %span 
-        3000
-      %span
-        (税抜)
-  %li.LessonList__block
-    .Lesson__date
-      2020/11/18(水)
-    .Lesson__startTime
-      16:00
-    %spam -
-    .Lesson__endTime
-      18:00
-    .Lesson__course
-      ヨガベーシック
-    .Lesson__fee
-      = icon('fas', 'shopping-bag', class: "Lesson__fee--icon")
-      %span
-        ¥
-      %span 
-        2000
-      %span
-        (税抜)
-  %li.LessonList__block
-    .Lesson__date
-      2020/11/19(木)
-    .Lesson__startTime
-      06:00
-    %spam -
-    .Lesson__endTime
-      09:00
-    .Lesson__course
-      朝のビーチヨガ
-    .Lesson__fee
-      = icon('fas', 'shopping-bag', class: "Lesson__fee--icon")
-      %span
-        ¥
-      %span 
-        10000
+        = lessonlist.fee
       %span
         (税抜)
