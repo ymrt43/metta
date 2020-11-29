@@ -1,7 +1,7 @@
 // トップページ
 .Top {
   width: 100%;
-  background-color: #757575;
+  background-color: #CCCCCC;
   font-size: 16px;
 }
 
@@ -24,15 +24,18 @@
     }
   }
   &__studio {
+    font-size: 18px;
     padding-top: 40px;
     padding-bottom: 30px;
     text-align: center;
-    color: #ffffff;
-    font-weight: 600;
+    color: #333333;
+    font-weight: 500;
     opacity: 60%;
   }
   &__search {
     &--bar {
+      height: 40px;
+      line-height: 40px;
     }
     &--selectBar {
       width: 340px;
@@ -53,14 +56,15 @@
   &__searchField {
     max-width: 400px;
     background-color: #ffffff;
-    border-radius: 4px;
+    border-radius: 1px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 30px;
+    height: 40px;
     padding: 0 10px;
     line-height: 26px;
     margin: 0 auto;
+    border-radius: 4px;
   }
   &__lessons {
     max-width: 480px;
@@ -87,11 +91,10 @@
 .Lesson {
   &__date {
     letter-spacing: 0.01em;
-    margin-right: 5px;
-    width: 100px;
+    margin-left: 10px;
+    width: 80px;
   }
   &__startTime {
-    margin-right: 2px;
     width: 36px;
   }
   &__endTime {
@@ -99,8 +102,8 @@
     margin-right: 8px;
   }
   &__course {
-    margin-right: 16px;
-    width: 100px;
+    margin-right: 10px;
+    width: 130px;
   }
   &__fee {
     &--icon{
@@ -162,4 +165,80 @@
 
 .logo2 {
   color: #9DA5A0;
+}
+
+// レッスン詳細ページ
+.LessonBox {
+  background-color: #ffffff;
+  max-width: 440px;
+  margin: 40px auto;
+  padding: 0 30px;
+  border-radius: 4px;
+  &__courseContainer {
+    border-bottom: 1px solid #E9E9E9;
+    h2 {
+      font-weight: 600;
+      font-size: 20px;
+      margin-left: 10px;
+      padding: 20px 0 10px;
+    }
+  }
+  &__courseImg {
+    margin: 30px 10px 0;
+  }
+  &__courseInfo {
+    white-space: pre-wrap;
+    font-size: 14px;
+    margin: 0 10px 20px;
+  }
+  &__lessonContainer {
+    margin: 20px 10px;
+    border-bottom: 1px solid #E9E9E9;
+  }
+  &__info {
+    font-size: 12px;
+    letter-spacing: 0.05em;
+  }
+  &__infoTag {
+    margin-right: 5px;
+    &--icon {
+      color: #757575;
+    }
+  }
+  &__infoContent {
+    font-size: 14px;
+    margin: 10px 0 20px;   
+  }
+  &__btn {
+    width: 260px;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    &--link {
+      text-decoration: none;
+    }
+    &--box {
+      border-radius: 4px;
+      text-align: center;
+      height: 40px;
+      line-height: 40px;
+      margin-bottom: 10px;
+      transition: .3s;
+      &:hover {
+        opacity: 0.8;
+        box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+      }
+    }
+    &--text {
+      font-size: 14px;
+    }
+  }
+}
+.ActionBox {
+  background-color: #60CAAD;
+  color: #ffffff;
+}
+.GrayBox {
+  background-color: #E9E9E9;
+  color: #6E777C;
 }
