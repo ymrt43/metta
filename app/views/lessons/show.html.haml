@@ -1,0 +1,45 @@
+.Form
+  = render partial: 'header'
+  .LessonBox
+    .LessonBox__courseContainer
+      = image_tag @lesson.course.src.url, alt: '画像', height: '220', width: '360', class: 'LessonBox__courseImg'
+      %h2 
+        = @lesson.course.course_name
+      .LessonBox__courseInfo
+        = @lesson.course.introduction
+    .LessonBox__lessonContainer
+      .LessonBox__info
+        %span.LessonBox__infoTag
+          = icon('far', 'calendar-alt', class: 'LessonBox__infoTag--icon')
+          = l(@lesson.date, format: :long)
+        %span.LessonBox__infoTag
+          = icon('far', 'clock', class: 'LessonBox__infoTag--icon')
+          = l(@lesson.start_time, format: :without_s)
+          〜
+          = l(@lesson.end_time, format: :without_s)
+      .LessonBox__info
+        %span.LessonBox__infoTag
+          = icon('fas', 'stopwatch', class: 'LessonBox__infoTag--icon')
+          = @lesson_duration
+        %span.LessonBox__infoTag
+          = icon('fas', 'user-friends', class: 'LessonBox__infoTag--icon')
+          定員/
+          = @lesson.capacity
+          人
+        %span.LessonBox__infoTag
+          = icon('fas', 'tag', class: 'LessonBox__infoTag--icon')
+          ¥
+          = @lesson.fee
+          (税込)
+      .LessonBox__infoContent
+        = @lesson.lesson_introduction
+    .LessonBox__btn
+      = link_to new_lesson_reservation_path(@lesson), class: 'LessonBox__btn--link' do
+        .LessonBox__btn--box.ActionBox
+          .LessonBox__btn--text
+            予約する
+      = link_to root_path, class: 'LessonBox__btn--link' do
+        .LessonBox__btn--box.GrayBox
+          .LessonBox__btn--text
+            ヨガレッスン検索ページへ
+  = render partial: 'footer'
