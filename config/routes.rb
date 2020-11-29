@@ -10,11 +10,12 @@ Rails.application.routes.draw do
   resources :users, only: :new
   root to: 'lessons#home'
   resources :lessons do
+    resources :reservations, only: [:new, :create]
     collection do
       get 'adminuser'
+      get 'search'
     end
   end
   resources :courses
-  resources :reservations, only: [:new, :create]
   
 end
