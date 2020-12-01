@@ -11,11 +11,9 @@
         ヨガ スタジオ　Mettā(メッタ)　予約サイト
     %section.Main__search
       .Main__searchField
-        = link_to "#", class: 'Link1' do
-          = icon('fas','filter', class: 'Main__search--icon')
+        = icon('fas','filter', class: 'Main__search--icon')
         = form_with url: search_lessons_path, method: :get, local: true, class: 'Main__search--bar' do |f|
           = f.collection_select :course_id, @courses, :id, :course_name, { include_blank: "メニューを選んでください" }, { class: 'Main__search--selectBar'}
-          = f.submit "検索"
     %section.Main__lessons
       %ul.LessonList
         = render partial: 'lessonLists', collection: @lessons, as: "lessonlist"
