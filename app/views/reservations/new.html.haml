@@ -38,8 +38,9 @@
               %span 名様
             .ReservationForm__sbt
               = f.submit "予約する", class: 'ReservationForm__sbt--action'
-      = link_to :back, class: 'LessonBox__btn--link' do
-        .LessonBox__btn--box.GrayBox
-          .LessonBox__btn--text
-            戻る
+      .LessonBox__btn
+        = link_to :back, class: 'LessonBox__btn--link' do
+          .LessonBox__btn--box.GrayBox
+            .LessonBox__btn--text
+              戻る
   = render partial: 'lessons/footer'
