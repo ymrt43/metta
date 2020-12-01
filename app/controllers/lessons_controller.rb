@@ -56,6 +56,10 @@ class LessonsController < ApplicationController
 
   def search
     @lessons = Lesson.search(params[:course_id])
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   private
