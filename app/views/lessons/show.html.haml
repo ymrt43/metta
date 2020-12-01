@@ -25,12 +25,16 @@
           = icon('fas', 'user-friends', class: 'LessonBox__infoTag--icon')
           定員/
           = @lesson.capacity
-          人
+          名様
         %span.LessonBox__infoTag
           = icon('fas', 'tag', class: 'LessonBox__infoTag--icon')
           ¥
           = @lesson.fee
           (税込)
+      .LessonBox__info
+        %span.LessonBox__infoTag
+          = icon('fas', 'medal', class: 'LessonBox__infoTag--icon')
+          = @lesson.level
       .LessonBox__infoContent
         = @lesson.lesson_introduction
     .LessonBox__btn
