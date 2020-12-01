@@ -1,7 +1,7 @@
 // トップページ
 .Top {
   width: 100%;
-  background-color: #CCCCCC;
+  background-color: #E9E9E9;
   font-size: 16px;
 }
 
@@ -30,7 +30,6 @@
     text-align: center;
     color: #333333;
     font-weight: 500;
-    opacity: 60%;
   }
   &__search {
     &--bar {
@@ -109,6 +108,10 @@
     &--icon{
       margin-right: 5px;
     }
+  }
+  &__msg {
+    text-align: center;
+    width: 380px;
   }
 }
 
