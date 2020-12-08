@@ -4,11 +4,21 @@ class ReservationsController < ApplicationController
   def new
     @reservation = Reservation.new
     @lesson_duration = @lesson.lesson_duration
+    @lesson_id = params[:lesson_id]
+    @participants = @reservation.number_of_participants(@lesson_id)
+    @capacity = @lesson.capacity - @participants
   end
 
   def create
     @reservation = @lesson.reservations.create(reservation_params)
-    unless @reservation.save
+    if @reservation.save
+      lesson_id = params[:lesson_id]
+      @participants = @reservation.number_of_participants(lesson_id)
+      @capacity = @lesson.capacity - @participants
+      if @capacity <= 0
+        @lesson.update_fully_booked
+      end
+    else
       flash.now[:alert] = '申し訳ございません 再度送信いただくか、お電話にてお問い合わせください'
       render :new
     end
