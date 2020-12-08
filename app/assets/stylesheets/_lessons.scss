@@ -75,16 +75,22 @@
   }
 }
 
-.LessonList__block {
+@mixin lessonList($colo: #333333) {
   display: flex;
   align-items: center;
   height: 42px;
   border: 1px solid #B6B6B6;
   border-radius: 10px;
-  color: #333333;
+  color: $colo;
   padding: 0 5px;
   margin: 8px 0;
   background-color: #ffffff;
+}
+.LessonList__block {
+  @include lessonList();
+  &--fullyBooked {
+    @include lessonList(#E9E9E9);
+  }
 }
 
 .Lesson {

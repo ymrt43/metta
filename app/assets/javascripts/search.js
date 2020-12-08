@@ -17,8 +17,8 @@ $(function() {
     var e_hh = ('0' + e_h).slice(-2);
     var e_mm = ('0' + e_m).slice(-2);
     
-    let html = `<a class="Link1" href="/lessons/${lesson.id}">
-                  <li class="LessonList__block">
+    if(lesson.fully_booked == 1){
+      let html = `<li class="LessonList__block--fullyBooked">
                     <div class="Lesson__date">
                       ${month}月${day}日(${week})
                     </div>
@@ -44,9 +44,40 @@ $(function() {
                       (税抜)
                     </span>
                     </div>
-                  </li>
-                </a>`
-    $(".LessonList").append(html);
+                  </li>`
+      $(".LessonList").append(html);
+    } else {
+      let html = `<a class="Link1" href="/lessons/${lesson.id}">
+                    <li class="LessonList__block">
+                      <div class="Lesson__date">
+                        ${month}月${day}日(${week})
+                      </div>
+                      <div class="Lesson__startTime">
+                        ${s_hh}:${s_mm}
+                      </div>
+                      <spam>-</spam>
+                      <div class="Lesson__endTime">
+                        ${e_hh}:${e_mm}
+                      </div>
+                      <div class="Lesson__course">
+                        ${lesson.coursename}
+                      </div>
+                      <div class="Lesson__fee">
+                        <i class="fas fa-tag Lesson__fee--icon"></i>
+                      <span>
+                        ¥
+                      </span>
+                      <span>
+                        ${lesson.fee}
+                      </span>
+                      <span>
+                        (税抜)
+                      </span>
+                      </div>
+                    </li>
+                  </a>`
+      $(".LessonList").append(html);
+    }
   }
 
   function appendErrMsgToHTML(msg) {

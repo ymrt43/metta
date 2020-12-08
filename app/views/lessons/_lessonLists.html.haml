@@ -1,5 +1,5 @@
-= link_to lesson_path(lessonlist), class: "Link1" do
-  %li.LessonList__block
+- if lessonlist.fully_booked?
+  %li.LessonList__block--fullyBooked
     .Lesson__date
       = l(lessonlist.date, format: :middle)
     .Lesson__startTime
@@ -17,3 +17,23 @@
         = lessonlist.fee
       %span
         (税抜)
+- else
+  = link_to lesson_path(lessonlist), class: "Link1" do
+    %li.LessonList__block
+      .Lesson__date
+        = l(lessonlist.date, format: :middle)
+      .Lesson__startTime
+        = l(lessonlist.start_time, format: :without_s)
+      %spam -
+      .Lesson__endTime
+        = l(lessonlist.end_time, format: :without_s)
+      .Lesson__course
+        = lessonlist.course.course_name
+      .Lesson__fee
+        = icon('fas', 'tag', class: "Lesson__fee--icon")
+        %span
+          ¥
+        %span 
+          = lessonlist.fee
+        %span
+          (税抜)
