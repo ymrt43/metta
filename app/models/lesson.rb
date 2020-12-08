@@ -8,7 +8,7 @@ class Lesson < ApplicationRecord
 
   def lesson_duration
     duration = (self.end_time - self.start_time) / 60
-    duration_h = (duration / 60).round
+    duration_h = (duration / 60).floor
     duration_m = (duration % 60).round
     if duration >= 60 && duration_m == 0
       return "#{duration_h}時間"
@@ -26,4 +26,10 @@ class Lesson < ApplicationRecord
       Lesson.all
     end
   end
+
+  def update_fully_booked
+    self.fully_booked = true if self.fully_booked == false
+    self.save
+  end
+
 end
