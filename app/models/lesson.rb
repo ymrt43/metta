@@ -6,6 +6,8 @@ class Lesson < ApplicationRecord
 
   enum level: { "初心者向け": 1, "中級者向け": 2, "上級者向け": 3 }
 
+  scope :incoming, -> { where('date > ?', Time.zone.now) }
+
   def lesson_duration
     duration = (self.end_time - self.start_time) / 60
     duration_h = (duration / 60).floor
@@ -21,9 +23,9 @@ class Lesson < ApplicationRecord
 
   def self.search(search)
     if search != ""
-      Lesson.where(course_id: search)
+      Lesson.incoming.where(course_id: search)
     else
-      Lesson.all
+      Lesson.incoming
     end
   end
 

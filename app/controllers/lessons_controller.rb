@@ -48,7 +48,7 @@ class LessonsController < ApplicationController
 
   def home
     @courses = Course.all
-    @lessons = Lesson.includes(:course).order("date ASC")
+    @lessons = Lesson.includes(:course).incoming.order("date ASC")
   end
 
   def adminuser
