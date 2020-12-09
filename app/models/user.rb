@@ -3,12 +3,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
+
   validates :name, presence: true
+
   has_one :profile
-  has_one :card
+
   has_many :sns_credentials
   has_many :reservations
-  has_many :lessons, through: :reservations
+  
 
   def self.from_omniauth(auth)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create

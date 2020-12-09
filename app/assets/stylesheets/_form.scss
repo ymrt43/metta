@@ -6,6 +6,9 @@
   width: 100%;
   background-color: #E9E9E9;
   font-size: 16px;
+  &__container {
+    min-height: calc( 100vh - 67px - 194px - 30px );
+  }
 }
 
 @mixin linkBlock($col: #ffffff) {

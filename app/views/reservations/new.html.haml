@@ -1,0 +1,51 @@
+.Form
+  = render partial: 'lessons/header'
+  .Form__container
+    .Reservation
+      %h2 予約確認ページ
+      .Reservation__info
+        .Reservation__courseImg
+          = image_tag @lesson.course.src.url, alt: '画像', height: '100', width: '100', class: 'LessonBox__courseImg2'
+        .Reservation__lessonInfo
+          .Reservation__courseName
+            = @lesson.course.course_name
+          .Reservation__infoBox
+            .Reservation__infoBox--date
+              = icon('far', 'calendar-alt', class: 'LessonBox__infoTag--icon')
+              = l(@lesson.date, format: :long)
+          .Reservation__infoBox
+            %span.Reservation__infoBox--time
+              = icon('far', 'clock', class: 'LessonBox__infoTag--icon')
+              = l(@lesson.start_time, format: :without_s)
+              〜
+              = l(@lesson.end_time, format: :without_s)
+            %span.Reservation__infoBox--time
+              = icon('fas', 'stopwatch', class: 'LessonBox__infoTag--icon')
+              = @lesson_duration
+          .Reservation__infoBox
+            = icon('fas', 'tag', class: 'LessonBox__infoTag--icon')
+            ¥
+            = @lesson.fee
+            (税込)
+      .Reservation__form
+        - if @capacity <= 0
+          .Reservation__message
+            このレッスンの予約の受付は終了いたしました
+        - else
+          = form_with model: [@lesson, @reservation], local: true do |f|
+            .ReservationForm
+              .ReservationForm__contents
+                .ReservationForm__label
+                  = f.label :count, "予約する人数を入力してください", class: 'ReservationForm__label'
+                  %span.rq 必須
+                .ReservationForm__content
+                  = f.number_field :count, autofocus: true, min: 0, max: @capacity, required: true, class: 'ReservationForm__box'
+                  %span 名様
+                .ReservationForm__sbt
+                  = f.submit "予約する", class: 'ReservationForm__sbt--action'
+        .LessonBox__btn
+          = link_to :back, class: 'LessonBox__btn--link' do
+            .LessonBox__btn--box.GrayBox
+              .LessonBox__btn--text
+                戻る
+  = render partial: 'lessons/footer'

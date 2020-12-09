@@ -1,0 +1,10 @@
+.Form
+  = render partial: 'lessons/header'
+  .Form__container
+    .FormBox
+      %h2 予約完了しました
+      .FormBox__image
+        = image_tag 'beach-yoga-pose-in-sand-at-sunset.jpg', alt: 'ヨガ画像', height: '250', width: '380'
+      .FormBox__link1
+        = link_to 'ヨガレッスン一覧へ戻る', root_path, class: 'Link3'
+  = render partial: 'lessons/footer'

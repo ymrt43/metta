@@ -42,10 +42,28 @@ class LessonsController < ApplicationController
     end
   end
 
+  def show
+    @lesson_duration = @lesson.lesson_duration
+    if user_signed_in?
+      @my_bookings = Reservation.includes(:lesson).where("user_id = ?", current_user.id)
+      @already_booked = @my_bookings.find_by lesson_id: @lesson.id
+    end
+  end
+
   def home
+    @courses = Course.all
+    @lessons = Lesson.includes(:course).incoming.order("date ASC")
   end
 
   def adminuser
+  end
+
+  def search
+    @lessons = Lesson.search(params[:course_id])
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   private
