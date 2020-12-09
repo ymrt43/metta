@@ -5,6 +5,8 @@
       = image_tag @lesson.course.src.url, alt: '画像', height: '220', width: '360', class: 'LessonBox__courseImg'
       %h2 
         = @lesson.course.course_name
+        - if user_signed_in? && @already_booked.present?
+          %span.LessonBox__booked 予約済
       .LessonBox__courseInfo
         = @lesson.course.introduction
     .LessonBox__lessonContainer
@@ -38,10 +40,21 @@
       .LessonBox__infoContent
         = @lesson.lesson_introduction
     .LessonBox__btn
-      = link_to new_lesson_reservation_path(@lesson), class: 'LessonBox__btn--link' do
-        .LessonBox__btn--box.ActionBox
-          .LessonBox__btn--text
-            予約する
+      - unless user_signed_in?
+        = link_to user_session_path, class: 'LessonBox__btn--link' do
+          .LessonBox__btn--box.ActionBox
+            .LessonBox__btn--text
+              ログインする
+      - if @already_booked.present?
+        = link_to root_path, class: 'LessonBox__btn--link' do
+          .LessonBox__btn--box.ActionBox
+            .LessonBox__btn--text
+              予約一覧へ
+      - else
+        = link_to new_lesson_reservation_path(@lesson), class: 'LessonBox__btn--link' do
+          .LessonBox__btn--box.ActionBox
+            .LessonBox__btn--text
+              予約する
       = link_to root_path, class: 'LessonBox__btn--link' do
         .LessonBox__btn--box.GrayBox
           .LessonBox__btn--text

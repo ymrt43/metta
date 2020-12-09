@@ -44,6 +44,10 @@ class LessonsController < ApplicationController
 
   def show
     @lesson_duration = @lesson.lesson_duration
+    if user_signed_in?
+      @my_bookings = Reservation.includes(:lesson).where("user_id = ?", current_user.id)
+      @already_booked = @my_bookings.find_by lesson_id: @lesson.id
+    end
   end
 
   def home

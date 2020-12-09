@@ -190,6 +190,18 @@
       font-size: 20px;
       margin-left: 10px;
       padding: 20px 0 10px;
+      position: relative;
+      span {
+        font-size: 14px;
+        color: #ffffff;
+        background-color: #ff0211;
+        border-radius: 4px;
+        padding: 3px 5px;
+        position: absolute;
+        right: 10px;
+        margin-top: 2px;
+        font-weight: 400;
+      }
     }
   }
   &__courseImg {
