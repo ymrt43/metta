@@ -49,6 +49,9 @@ test:
 #
 production:
   <<: *default
-  database: metta_production
-  username: metta
-  password: <%= ENV['METTA_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  # database: metta_production
+  # username: metta
+  # password: <%= ENV['METTA_DATABASE_PASSWORD'] %>
