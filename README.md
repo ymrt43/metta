@@ -1,6 +1,34 @@
-# README
+# Mettā
+<img width="633" alt="metta-logo" src="https://user-images.githubusercontent.com/66734795/102176170-37871f80-3ee4-11eb-837b-bfd816faac1c.png">
+  ヨガ教室Mettā(仮)の予約アプリケーション
 
-# metta DB設計
+# 概要
+  - 教室運営者：レッスン情報を登録
+  - お客様　　：公開されたレッスンを予約
+
+# 本番環境
+  URL: https://github.com/ymrt43/metta
+  テスト用アカウント ID:guest1@test
+                  PW:guest1
+
+# 制作背景
+  ヨガインストラクターの友人が個人で運営する教室の予約システムをアプリケーションで簡易化したいと考えた
+
+# 工夫したポイント
+  ヨガ教室をカテゴリーに分け、ユーザーが検索しやすい様にインクリメンタルサーチを実装
+
+# 使用技術
+  ### 開発環境
+    Ruby/Ruby on Rails/MySQL/Github/Heroku/Visual Studio Code
+
+# 今後実装したい機能
+  - システム管理者専用機能
+  - カレンダー機能
+
+# 課題
+  - SNSのAPIを本番環境で有効化
+
+# DB設計
 ![metta_er](https://user-images.githubusercontent.com/66734795/99940532-ad99da00-2daf-11eb-808f-1b7ff59075e1.png)
 
 
@@ -25,15 +53,6 @@
 |user_id|refernces|foreign_key: true|
 ### Association
 - belongs_to :user, optional: true
-
-## cardsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|foreign_key: true, null: false|
-|customer_id|string|null: false|
-|card_id|string|null: false|
-### Association
-- belongs_to :user
 
 ## sns_credentialsテーブル
 |Column|Type|Options|
