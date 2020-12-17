@@ -7,9 +7,10 @@
   - お客様　　：公開されたレッスンを予約
 
 # 本番環境
-  URL: https://github.com/ymrt43/metta
-  テスト用アカウント ID:guest1@test
-                  PW:guest1
+- URL: https://github.com/ymrt43/metta
+- テスト用アカウント
+  - ID:guest1@test
+  - PW:guest1
 
 # 制作背景
   ヨガインストラクターの友人が個人で運営する教室の予約システムをアプリケーションで簡易化したいと考えた
