@@ -7,7 +7,7 @@
   - お客様　　：公開されたレッスンを予約
 
 # 本番環境
-- URL: https://github.com/ymrt43/metta
+- URL: https://metta-yogastudio-app.herokuapp.com/
 - テスト用アカウント
   - ID:guest1@test
   - PW:guest1
