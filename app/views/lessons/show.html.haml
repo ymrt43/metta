@@ -45,16 +45,17 @@
           .LessonBox__btn--box.ActionBox
             .LessonBox__btn--text
               ログインする
-      - if @already_booked.present?
-        = link_to root_path, class: 'LessonBox__btn--link' do
-          .LessonBox__btn--box.ActionBox
-            .LessonBox__btn--text
-              予約一覧へ
       - else
-        = link_to new_lesson_reservation_path(@lesson), class: 'LessonBox__btn--link' do
-          .LessonBox__btn--box.ActionBox
-            .LessonBox__btn--text
-              予約する
+        - if @already_booked.present?
+          = link_to root_path, class: 'LessonBox__btn--link' do
+            .LessonBox__btn--box.ActionBox
+              .LessonBox__btn--text
+                予約一覧へ
+        - else
+          = link_to new_lesson_reservation_path(@lesson), class: 'LessonBox__btn--link' do
+            .LessonBox__btn--box.ActionBox
+              .LessonBox__btn--text
+                予約する
       = link_to root_path, class: 'LessonBox__btn--link' do
         .LessonBox__btn--box.GrayBox
           .LessonBox__btn--text
